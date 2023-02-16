@@ -1,5 +1,6 @@
 package com.devbridge.employees.controllers;
 import com.devbridge.employees.models.dto.EmployeeDto;
+import com.devbridge.employees.models.entities.EmployeeEntity;
 import com.devbridge.employees.services.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,8 @@ public class EmployeeController {
     }
 
     @PostMapping("/addList")
-    public String addEmployees(@RequestBody List<EmployeeDto> employeeDtoList){
-        employeeService.saveList(employeeDtoList);
-        return "employee saved!";
+    public List<EmployeeDto> addEmployees(@RequestBody List<EmployeeDto> employeeDtoList){
+        List<EmployeeEntity> employeeEntityList = employeeService.saveList(employeeDtoList);
+        return employeeService.getAllEmployees();
     }
 }
