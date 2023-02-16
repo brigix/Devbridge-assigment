@@ -16,7 +16,7 @@ public class EmployeeConverter {
     }
 
     public EmployeeDto employeeConvert(EmployeeEntity employeeEntity){
-        EmployeeDto employeeDto = new EmployeeDto(employeeEntity.getId(), employeeEntity.getName(), employeeEntity.getEmail(), employeeEntity.getPhone());
+        EmployeeDto employeeDto = new EmployeeDto(employeeEntity.getName(), employeeEntity.getEmail(), employeeEntity.getPhone());
         return employeeDto;
     }
     public EmployeeEntity employeeEntityConvert(EmployeeDto employeeDto){

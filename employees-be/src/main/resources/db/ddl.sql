@@ -3,8 +3,8 @@ create DATABASE EmployeesDB;
 use EmployeesDB;
 
 create TABLE Employees(
-id INT PRIMARY KEY,
-name VARCHAR (255),
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR (255) NOT NULL,
 email VARCHAR (255) NOT NULL,
-phone VARCHAR (255)
+phone VARCHAR (255) NOT NULL
 )

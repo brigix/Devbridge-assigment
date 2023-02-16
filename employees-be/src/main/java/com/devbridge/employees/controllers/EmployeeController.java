@@ -33,9 +33,8 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping("/add")
-    public String addEmployee(@RequestBody List<EmployeeDto> employeeDtoList){
-    //    employeeDtoList.stream().map((employeeConverter.employeeEntityConvert()).collect(toList());
+    @PostMapping("/addList")
+    public String addEmployees(@RequestBody List<EmployeeDto> employeeDtoList){
         employeeService.saveList(employeeDtoList);
         return "employee saved!";
     }

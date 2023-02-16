@@ -8,6 +8,7 @@ import com.devbridge.employees.repositories.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -26,6 +27,7 @@ public class EmployeeService {
     }
     public List<EmployeeEntity> saveList(List<EmployeeDto> employeeDtoList) {
         List<EmployeeEntity> employeeEntityList = employeeConverter.employeeEntityListConverter(employeeDtoList);
-        return employeeRepository.saveAll(employeeEntityList);
+        return employeeEntityList.stream().map(employee -> employeeRepository.save(employee)).collect(Collectors.toList());
+        //return employeeRepository.saveAll(employeeEntityList);
     }
 }
