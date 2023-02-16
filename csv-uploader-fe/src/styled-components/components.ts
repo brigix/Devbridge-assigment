@@ -30,6 +30,20 @@ export const Button = styled.button`
 	}
 `;
 
+export const EmployeeCard = styled.div`
+	display: flex;
+	flex-direction: row;
+	color: ${(props) => props.theme.colors.text};
+	background-color: ${(props) => props.theme.colors.main};
+	margin-bottom: 0.4rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.2rem;
+	text-align: left;
+`;
+
+
+
+
 
 export const PageContainer = styled.div`
 	display: flex;
@@ -72,17 +86,6 @@ export const RightSide = styled(NavBar)`
 		flex-direction: column;
 		width: 100%;
 	}
-`;
-
-export const CountryCard = styled.div`
-	display: flex;
-	flex-direction: row;
-	color: ${(props) => props.theme.colors.text};
-	background-color: ${(props) => props.theme.colors.main};
-	margin-bottom: 0.4rem;
-	padding: 0.5rem 1rem;
-	border-radius: 0.2rem;
-	text-align: left;
 `;
 
 export const Header = styled.h2`
