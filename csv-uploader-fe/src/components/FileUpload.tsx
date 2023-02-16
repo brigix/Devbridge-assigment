@@ -6,7 +6,11 @@ import {
 	CenterContainer,
 } from "../styled-components/components";
 
-const FileUpload = () => {
+const FileUpload = ({
+	setDataFromFile,
+}: {
+	setDataFromFile: (data: string) => void;
+}) => {
 	const hiddenFileInput = useRef<HTMLInputElement>(null);
 	const [file, setFile] = useState<File>();
 
@@ -24,7 +28,7 @@ const FileUpload = () => {
 			header: true,
 			skipEmptyLines: true,
 			complete: function (results: { data: any }) {
-				console.log(results.data);
+				setDataFromFile(results.data);
 			},
 		});
 	};
