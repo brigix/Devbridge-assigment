@@ -1,0 +1,2 @@
+INSERT INTO employees (id, name, email, phone) VALUES (1, "Petras petraitis", "petras@mail.com", "8645123456");
+INSERT INTO employees (id, name, email, phone) VALUES (2, "Jonas Jonaitis", "jonas@mail.com", "86451987654");
