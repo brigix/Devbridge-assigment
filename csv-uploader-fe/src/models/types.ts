@@ -3,3 +3,8 @@ export type Employee = {
     "email": string,
     "phone": string
 }
+
+export enum Row  {
+    EVEN,
+    ODD
+}

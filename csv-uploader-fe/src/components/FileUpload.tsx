@@ -17,20 +17,14 @@ const FileUpload = ({
 	const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
 		if (e.target.files) {
 			setFile(e.target.files[0]);
+			Papa.parse(e.target.files[0], {
+				header: true,
+				skipEmptyLines: true,
+				complete: function (results: { data: any }) {
+					setDataFromFile(results.data);
+				},
+			});
 		}
-	};
-
-	const handleUploadClick = () => {
-		if (!file) {
-			return;
-		}
-		Papa.parse(file, {
-			header: true,
-			skipEmptyLines: true,
-			complete: function (results: { data: any }) {
-				setDataFromFile(results.data);
-			},
-		});
 	};
 
 	const handleChooseFileClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -51,7 +45,7 @@ const FileUpload = ({
 			<Button onClick={handleChooseFileClick}>Choose CSV file</Button>
 			<div>{file && `${file.name} - ${file.type}`}</div>
 
-			<Button onClick={handleUploadClick}>Upload</Button>
+			
 		</CenterContainer>
 	);
 };

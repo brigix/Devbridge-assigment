@@ -1,11 +1,22 @@
 import React from "react";
-import { Employee } from "../models/types";
-import { EmployeeCard } from "../styled-components/components";
+import { Employee, Row } from "../models/types";
+import { EmployeeCard, EmployeeColumn } from "../styled-components/components";
 
-const EmployeeRow = ({ employee }: { employee: Employee }) => {
+const EmployeeRow = ({
+	employee,
+	rowNumber,
+}: {
+	employee: Employee;
+	rowNumber: number;
+    }) => {
+    
+    const row: Row = !!(rowNumber % 2) ? Row.EVEN : Row.ODD
+    
 	return (
-		<EmployeeCard>
-			{employee.name} {employee.email} {employee.phone}
+		<EmployeeCard row={row}>
+			<EmployeeColumn>{employee.name}</EmployeeColumn>
+			<EmployeeColumn>{employee.email}</EmployeeColumn>
+			<EmployeeColumn>{employee.phone}</EmployeeColumn>
 		</EmployeeCard>
 	);
 };

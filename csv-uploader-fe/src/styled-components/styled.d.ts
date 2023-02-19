@@ -6,8 +6,11 @@ declare module "styled-components" {
 			main: string;
 			secondary: string;
 			selected: string;
+			hover: string;
 			text: string;
 			light: string;
+			even: string;
+			odd: string;
 			error: string;
 		};
 	}
