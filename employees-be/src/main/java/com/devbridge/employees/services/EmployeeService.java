@@ -26,6 +26,9 @@ public class EmployeeService {
         return employeeDtoList;
     }
     public List<EmployeeEntity> saveList(List<EmployeeDto> employeeDtoList) {
+        List<EmployeeEntity> currentEmployeeEntityList = employeeRepository.findAll();
+        List<EmployeeDto> currentEmployeeDtoList = employeeConverter.employeeDtoListConvert(currentEmployeeEntityList);
+        currentEmployeeDtoList.forEach(entity -> employeeDtoList.removeIf(x -> x.contains(entity)));
         List<EmployeeEntity> employeeEntityList = employeeConverter.employeeEntityListConverter(employeeDtoList);
         return employeeEntityList.stream().map(employee -> employeeRepository.save(employee)).collect(Collectors.toList());
         //return employeeRepository.saveAll(employeeEntityList);
